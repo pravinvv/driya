@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form [formGroup]="frm" (ngSubmit)="update()" class="example-form">
+        <h3>User Profile</h3>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="First Name" formControlName="fname" />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Last Name" formControlName="lname" />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <textarea
+            matInput
+            placeholder="Address"
+            formControlName="address"
+          ></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Mobile No" formControlName="mobile" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Enter Email" formControlName="email" />
+        </mat-form-field>
+
+        <button mat-raised-button color="primary">
+          Update
+        </button>
+        <button mat-raised-button class="reset" color="primary">
+          Reset
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

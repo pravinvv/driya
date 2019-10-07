@@ -1,0 +1,14 @@
+.done {
+  text-decoration: none;
+}
+
+.main-div {
+  padding: 10px;
+  text-align: center;
+}
+.main-div h3 {
+  border: 2px solid #ff00f7;
+  padding: 10px;
+  border-radius: 5px;
+  background: #00ffe7;
+}

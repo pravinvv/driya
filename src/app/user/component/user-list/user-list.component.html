@@ -1,0 +1,109 @@
+<div class="container main-div">
+  <h3>
+    Car List
+  </h3>
+</div>
+
+<div class="container">
+  &nbsp;
+  <div class="container row col-md-12">
+    <div class="col-md-3">
+      <input type="text" name="" class="item form-control" [(ngModel)]="item" />
+    </div>
+    <div class="col-md-3">
+      <button
+        class="btn-add-item"
+        type="button"
+        class="btn btn-success"
+        (click)="create()"
+      >
+        <i class="fa fa-plus"></i>
+      </button>
+    </div>
+  </div>
+  &nbsp;
+
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of mockData; let i = index">
+          <td [ngClass]="{ done: item.done }">{{ i + 1 }}</td>
+          <td [ngClass]="{ done: item.done }">{{ item.title }}</td>
+          <td>
+            <div class="container">
+              <button
+                type="button"
+                class="btn btn-primary"
+                style="margin-right: 10px;"
+                (click)="edit(item.id, item.title)"
+                data-toggle="modal"
+                data-target="#myModal"
+              >
+                <i class="fa fa-edit"></i>
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="remove(item.id)"
+              >
+                <i class="fa fa-trash"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  {{ users | json }}
+</div>
+<div class="container">
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Update Data</h4>
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="edit-popup container row" *ngIf="show">
+            <div class="col-md-6 ">
+              <input
+                type="text"
+                name=""
+                class="edit-item form-control"
+                value="{{ value }}"
+                #item
+              />
+            </div>
+            <div class="col-md-3">
+              <button
+                class="btn-update close"
+                class="btn btn-primary"
+                (click)="update(item.value)"
+              >
+                Update
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
